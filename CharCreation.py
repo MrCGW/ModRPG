@@ -1,5 +1,4 @@
 # Character creation script.
-# First version - name, race, and health.
 # See GitHub commits for changes
 
 
@@ -12,8 +11,11 @@ def playerC(): #Character creation function.
     print("Welcome to creating your character")
     saved = input("Do you wish to load a saved character? Y or N")
     if saved.strip().lower() == "y":
-        with open('Character.json') as json_file: #Open an existing, saved, character
-            character = json.load(json_file)
+        try:
+            with open('Character.json') as json_file: #Open an existing, saved, character
+                character = json.load(json_file)
+        except:
+            print("No character file saved")
     else:
         name = input("Enter your character's name: ")
         health = random.randint(10,25)
@@ -30,17 +32,15 @@ def playerC(): #Character creation function.
 
 def EnemyC():
     EnemyStat = {}
-    race = random.choice(Bad_Guys_List)
+    race = random.choice(list(Bad_Guys_List.keys()))
+    HPMod = HPMod = Bad_Guys_List[race]
     name = random.choice(race_names[race])
 
     EnemyStat.update({"Name" : name})
     EnemyStat.update({"Type": race})
-    health = random.randint(5, 20)
-    if race == "Orc":
-        health += 10
-    elif race == "Hobgoblin":
-        health += 5
-    EnemyStat.update({"Health": health})
+    health = random.randint(5, 20) + HPMod
+    EnemyStat.update({"Health" : health})
+
     return EnemyStat
 
 #Creating a list of dictionaries for multiple enemies
