@@ -1,7 +1,7 @@
 #
-#Building an RPG - purpose, demonstrating programming skills to students.
-#Filename: Combat.py
-#Created 10 Mar 2025
+# Building an RPG - purpose, demonstrating programming skills to students.
+# Filename: Combat.py
+# Created 10 Mar 2025
 #
 import random
 #Function declarations
