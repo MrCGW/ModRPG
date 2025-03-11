@@ -1,9 +1,11 @@
-#Character creation script.
-#First version - name, race, and health.
-#Type is the identifier of enemy or player.
+# Character creation script.
+# First version - name, race, and health.
+# See GitHub commits for changes
+
 
 import random, json
 from Weapons import weapon
+from Bad_Guys import Bad_Guys_List, race_names
 
 def playerC(): #Character creation function.
     character = {}
@@ -27,13 +29,11 @@ def playerC(): #Character creation function.
     return character
 
 def EnemyC():
-    names = ["Ug", "Grok", "Druurg", "Varaag"]
-    raceLst = ["Orc", "Goblin", "Hobgoblin"]
     EnemyStat = {}
-    name = random.choice(names)
+    race = random.choice(Bad_Guys_List)
+    name = random.choice(race_names[race])
 
     EnemyStat.update({"Name" : name})
-    race = random.choice(raceLst)
     EnemyStat.update({"Type": race})
     health = random.randint(5, 20)
     if race == "Orc":
