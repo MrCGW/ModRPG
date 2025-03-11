@@ -38,9 +38,9 @@ def fight(Health):
             break
     return Health
 
-def run_combat(): #main function
-    PHealth = 20
-    EHealth = 20
+def run_combat(character, enemy): #main function
+    PHealth = character.get("Health")
+    EHealth = enemy.get("Health")
     PAttack = 0
     EAttack = 0
     print(" &&&&& RPG Combat &&&&& ")

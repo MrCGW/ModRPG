@@ -2,7 +2,8 @@
 #First version - name, race, and health.
 #Type is the identifier of enemy or player.
 
-import random, json #Combat
+import random, json
+from Weapons import weapon
 
 def playerC(): #Character creation function.
     character = {}
@@ -16,10 +17,17 @@ def playerC(): #Character creation function.
         health = random.randint(10,25)
         character.update({"Name" : name})
         character.update({"Health" : health})
+        print(weapon)
+        weapn = input("Choose a weapon from the list")
+        if weapn in weapon:
+            print(f"\nYou chose the {weapn}, with {weapon[weapn]} damage")
+            character["weapon"]=weapn
+            character["Damage"]=weapon[weapn]
+
     return character
 
 def EnemyC():
-    names = ["Ug", "Grok", "Druug", "Varaag"]
+    names = ["Ug", "Grok", "Druurg", "Varaag"]
     raceLst = ["Orc", "Goblin", "Hobgoblin"]
     EnemyStat = {}
     name = random.choice(names)
@@ -54,7 +62,6 @@ with open('Character.json', 'w') as f:
 # Generate a random int from 0 to length of list.
 # Allows picking of a random enemy from the enemy list
 AttLst = random.randrange(len(EnemyList))
-# AttLst = random.choice(EnemyList)
 
 #print statements for testing
 print(len(EnemyList))
