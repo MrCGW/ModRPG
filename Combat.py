@@ -6,7 +6,7 @@
 import random
 #Function declarations
 
-#attack function is a D6 roll
+#attack function is a D6 roll - hit on even numbers
 def attack():
     hit = random.randint(1,6)
     print(hit)
@@ -44,10 +44,10 @@ def run_combat(character, enemy): #main function
     PAttack = 0
     EAttack = 0
     print(" &&&&& RPG Combat &&&&& ")
-    print("Start of combat your Health = ", PHealth)
+    print("Start of combat, your Health = ", PHealth)
     while PHealth > 0 and EHealth > 0: #and logic to see if character is defeated.
         PAttack = PAttack + 1
-        print("Your attack", PAttack)
+        print("Your attack number", PAttack)
         #Character = "player"
         print("Enemy health: ", EHealth)
         EHealth = fight(EHealth)
@@ -58,7 +58,7 @@ def run_combat(character, enemy): #main function
         #Character = "Enemy"
         print("Enemy attacks you")
         EAttack = EAttack + 1
-        print("\nEnemy attack ", EAttack)
+        print("\nEnemy attack number: ", EAttack)
         print("Your health: ", PHealth)
         PHealth = fight(PHealth)
         if PHealth <= 0:

@@ -33,12 +33,12 @@ def playerC(): #Character creation function.
 def EnemyC():
     EnemyStat = {}
     race = random.choice(list(Bad_Guys_List.keys()))
-    HPMod = HPMod = Bad_Guys_List[race]
+    HPMod = Bad_Guys_List[race]
     name = random.choice(race_names[race])
+    health = random.randint(5, 20) + HPMod
 
     EnemyStat.update({"Name" : name})
-    EnemyStat.update({"Type": race})
-    health = random.randint(5, 20) + HPMod
+    EnemyStat.update({"Race": race})
     EnemyStat.update({"Health" : health})
 
     return EnemyStat
@@ -60,13 +60,15 @@ with open('Character.json', 'w') as f:
 
 
 # Generate a random int from 0 to length of list.
-# Allows picking of a random enemy from the enemy list
-AttLst = random.randrange(len(EnemyList))
+# Allows picking of a random enemy from the enemy list - stored in Attr
+Attr = random.randrange(len(EnemyList))
 
 #print statements for testing
 print(len(EnemyList))
-print(AttLst)
-print(EnemyList[AttLst].get("Name"))
+print(Attr)
+name, health = EnemyList[Attr].get("Name"), EnemyList[Attr].get("Health")
+print(name , health)
+
 
 #Future Functionality to import combat.py
 #Combat.run_combat(character, enemy)

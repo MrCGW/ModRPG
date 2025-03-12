@@ -10,19 +10,17 @@ race_names = {
     "Dreadforged": ["Vorrak the Hollow", "Malrik Ironbane", "Sorrowbrand", "Kaelthorn the Shackled", "Draeven Soulshard"]
 }
 
-# checks if the program is run directly or called from another script.
-# Explanation - if the script is run directly, the code from below if __name__ will run.
-# Otherwise, only the code above will run from the calling program.
+#
 if __name__ == "__main__":
 
-    # Stand alone testing for Bad_Guys
+    # Stand-alone testing for Bad_Guys
     print(Bad_Guys_List)
     # Randomly choose a race from Bad_Guys_List
     # Store the HP modifier for the race
-    # Then, based on race chosen randomly get a name
+    # Then, based on race chosen, randomly generate a name from the race_names list
     race = random.choice(list(Bad_Guys_List.keys()))
     HPMod = Bad_Guys_List[race]
     name = random.choice(race_names[race])
-    print(race)
-    print(HPMod)
-    print(name)
+    print("Race: ", race)
+    print("HP Modifier: ", HPMod)
+    print("Name: ", name)
