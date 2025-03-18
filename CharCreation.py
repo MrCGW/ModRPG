@@ -30,44 +30,18 @@ def playerC(): #Character creation function.
 
     return character
 
-def EnemyC():
-    EnemyStat = {}
-    race = random.choice(list(Bad_Guys_List.keys()))
-    HPMod = Bad_Guys_List[race]
-    name = random.choice(race_names[race])
-    health = random.randint(5, 20) + HPMod
 
-    EnemyStat.update({"Name" : name})
-    EnemyStat.update({"Race": race})
-    EnemyStat.update({"Health" : health})
-
-    return EnemyStat
-
-#Creating a list of dictionaries for multiple enemies
-EnemyList = []
-NoEn = int(input("How many enemies do you want to create?"))
-for i in range(NoEn):
-    enemy = EnemyC()
-    EnemyList.append(enemy)
 
 character = playerC()
 
 print(character)
-print(EnemyList)
+
 # Write the PC to a json file
 with open('Character.json', 'w') as f:
     json.dump(character, f)
 
 
-# Generate a random int from 0 to length of list.
-# Allows picking of a random enemy from the enemy list - stored in Attr
-Attr = random.randrange(len(EnemyList))
 
-#print statements for testing
-print(len(EnemyList))
-print(Attr)
-name, health = EnemyList[Attr].get("Name"), EnemyList[Attr].get("Health")
-print(name , health)
 
 
 #Future Functionality to import combat.py
