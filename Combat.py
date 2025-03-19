@@ -4,8 +4,8 @@
 # Created 10 Mar 2025
 #
 import random
-from CharCreation import character
-from Enemy_Creator import EnemyList
+from CharCreation import playerC
+from GameMain import enemy_list
 #Function declarations
 
 #attack function is a D6 roll - hit on even numbers
@@ -40,14 +40,14 @@ def fight(Health):
             break
     return Health
 
-def run_combat(character, enemy): #main function
+def run_combat(character, enemy_list): #main function
     PHealth = character.get("Health")
-    Attr = random.randrange(len(EnemyList))
-    name, ehealth = EnemyList[Attr].get("Name"), EnemyList[Attr].get("Health")
+    Attr = random.randrange(len(enemy_list))
+    name, ehealth = enemy_list[Attr].get("Name"), enemy_list[Attr].get("Health")
     print(name, ehealth)
     PAttack = 0
     EAttack = 0
-    print(" &&&&& RPG Combat &&&&& ")
+    print(" \n&&&&& RPG Combat &&&&&\n ")
     print("Start of combat, your Health = ", PHealth)
     while PHealth > 0 and ehealth > 0: # and logic to see if character is defeated.
         PAttack = PAttack + 1
