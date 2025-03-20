@@ -1,3 +1,5 @@
+# GameMain script - the starting point of the game project.
+
 import json
 from CharCreation import playerC
 from Enemy_Creator import run_enemy
@@ -22,18 +24,20 @@ def begin():
                     with open('Character.json') as json_file:  # Open an existing, saved, character
                         character = json.load(json_file)
                 except FileNotFoundError:
-                    print("No character file saved")
+                    print("No character file saved. Please create a character first")
             else:
                 print("Invalid Choice. Please enter 1 or 2.")
         except ValueError:
             print("Please choose from the list")
 
-def encounter(character, enemy_list):
-    run_combat(character, enemy_list)
+    if not character: # makes sure a character is returned.
+        print("Error: No character found. Taking you to character creation")
+        character = playerC()
 
+    return character
 
 character = begin()
 print("Game Main character: ", character)
 enemy_list = run_enemy()
 print(enemy_list)
-encounter(character, enemy_list)
+run_combat(character, enemy_list)

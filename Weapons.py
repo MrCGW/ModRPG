@@ -1,4 +1,4 @@
-
+# weapons stats file
 weapon = {
     "Shortsword": 5,
     "Axe": 7,

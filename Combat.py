@@ -40,8 +40,8 @@ def fight(Health):
             break
     return Health
 
-def run_combat(character, enemy_list): #main function
-    PHealth = character.get("Health")
+def run_combat(char, enemy_list): #main function
+    PHealth = char.get("Health")
     Attr = random.randrange(len(enemy_list))
     name, ehealth = enemy_list[Attr].get("Name"), enemy_list[Attr].get("Health")
     print(name, ehealth)
@@ -76,5 +76,6 @@ if __name__ == "__main__": #checks if the program is run directly or called from
     with open('Character.json') as json_file:  # Open an existing, saved, character
         character = json.load(json_file)
     with open('EnemyList.json') as json_file:  # Open an existing, saved, character
-        EnemyList = json.load(json_file)
-    run_combat(character, EnemyList)
+        enemyList = json.load(json_file)
+    print(enemyList)
+    run_combat(character, enemyList)

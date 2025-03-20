@@ -25,18 +25,7 @@ def playerC(): #Character creation function.
     return character
 
 
-
-#character = playerC()
-
-#print(character)
-
-
-
-
 if __name__ == "__main__":
     TestPlayer = playerC()
     print(TestPlayer)
 
-
-#Future Functionality to import combat.py
-#Combat.run_combat(character, enemy)

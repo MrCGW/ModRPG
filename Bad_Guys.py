@@ -1,4 +1,4 @@
-# Testing GitHub branch
+# Data races and race names for enemies
 import random
 
 Bad_Guys_List = {"Umbrakin" : 0, "Drakkaari" : 5, "Ashkith" : 5, "Dreadforged" : 15, "Mireborn" : 10}
