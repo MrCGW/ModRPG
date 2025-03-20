@@ -4,9 +4,9 @@
 # Created 10 Mar 2025
 #
 import random
-from CharCreation import playerC
-from GameMain import enemy_list
-#Function declarations
+# from CharCreation import playerC
+# from GameMain import enemy_list
+# Function declarations
 
 #attack function is a D6 roll - hit on even numbers
 def attack():
@@ -72,4 +72,9 @@ def run_combat(character, enemy_list): #main function
     print("Combat simulation over!")
 
 if __name__ == "__main__": #checks if the program is run directly or called from another script
+    import json
+    with open('Character.json') as json_file:  # Open an existing, saved, character
+        character = json.load(json_file)
+    with open('EnemyList.json') as json_file:  # Open an existing, saved, character
+        EnemyList = json.load(json_file)
     run_combat(character, EnemyList)

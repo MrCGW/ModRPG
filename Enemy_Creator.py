@@ -1,6 +1,7 @@
 # Enemy Creation script
 
 import random
+import json
 from Bad_Guys import Bad_Guys_List, race_names
 
 def EnemyC():
@@ -24,7 +25,8 @@ def run_enemy():
     for i in range(NoEn):
         enemy = EnemyC()
         EnemyList.append(enemy)
-
+    with open('EnemyList.json', 'w') as f:
+        json.dump(EnemyList, f)
     return EnemyList
 
 
