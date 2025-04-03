@@ -14,15 +14,15 @@ banner = tk.Label(
     width= 600,
     height=2
 )
-
+# Some colouring of widgets does not work on MacOs as the OS overrides the tkinter properties.
+# Work around can be to use labels rather than buttons, this adds complexity due to having to bind commands
 btn_choice = tk.Button(
     text="Create Character",
-    width=300,
-    height=10,
     fg="yellow",
-    bg="blue"
+    highlightbackground="blue"
 )
+btn_choice.config(width=20, height=2)
 banner.pack()
 btn_choice.pack()
-# Keep window open (Pycharm)
+# Keep window open
 window.mainloop()
